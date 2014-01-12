@@ -29,13 +29,13 @@ To trigger an event on one or more channels use the trigger function.
 
 #### A single channel
 
-```js
+```javascript
 pusher.trigger( 'channel-1', 'test_event', { message: "hello world" } );
 ```
 
 #### Multiple channels
 
-```js
+```javascript
 pusher.trigger( [ 'channel-1', 'channel-2' ], 'test_event', { message: "hello world" } );
 ```
 
@@ -43,7 +43,7 @@ pusher.trigger( [ 'channel-1', 'channel-2' ], 'test_event', { message: "hello wo
 
 In order to avoid the person that triggered the event also receiving it the `trigger` function can take an optional `socketId` parameter. For more informaiton see: <http://pusher.com/docs/publisher_api_guide/publisher_excluding_recipients>.
 
-```js
+```javascript
 var socketId = '1302.1081607';
 
 pusher.trigger(channel, event, data, socketId);
@@ -53,7 +53,7 @@ pusher.trigger(channel, event, data, socketId);
 
 To authorise your users to access private channels on Pusher, you can use the `auth` function:
 
-```js
+```javascript
 var auth = pusher.auth( socketId, channel );
 ```
 
@@ -63,7 +63,7 @@ For more information see: <http://pusher.com/docs/authenticating_users>
 
 Using presence channels is similar to private channels, but you can specify extra data to identify that particular user:
 
-```js
+```javascript
 var channelData = {
 	user_id: 'unique_user_id',
 	user_info: {
@@ -96,21 +96,21 @@ The following example provides the signature of the callback and an example of p
 		} );    
 
 #### Get list of channels in an application
-```js
+```javascript
 pusher.get( { path: '/channels', params: params }, callback );
 ```
 
 Information on the optional `params` option property and the structure of the returned JSON is defined in the [REST API reference](http://pusher.com/docs/rest_api#method-get-channels).
 
 #### Get single channel state
-```js
+```javascript
 pusher.get( { path: '/channels/[channel_name]', params: params }, callback );
 ```
 
 Information on the optional `params` option property and the structure of the returned JSON is defined in the [REST API reference](http://pusher.com/docs/rest_api#method-get-channel).
 
 #### Get list of users on a presence channel
-```js
+```javascript
 pusher.get( { path: '/channels/[channel_name]/users' }, callback );
 ```
 
